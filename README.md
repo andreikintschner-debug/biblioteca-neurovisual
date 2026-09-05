@@ -34,7 +34,14 @@ Neurovisual/
 └── README.md
 ```
 
-Não há build. É **HTML + Tailwind (via CDN) + JavaScript vanilla**.
+É **HTML estático + JavaScript vanilla**. O CSS (Tailwind compilado + estilos
+próprios + `@font-face`) está **embutido no `<head>`** do `index.html`, e as fontes
+(Outfit + Plus Jakarta Sans) são **auto-hospedadas** em `assets/fonts/`. As imagens
+otimizadas (WebP) vivem em `assets/img/`. Não há dependências de CDN em runtime.
+
+> Para recompilar o CSS após editar classes no HTML: usa-se o Tailwind CLI standalone
+> (`tailwindcss-windows-x64.exe`, sem Node) com `css/styles.css` como fonte dos estilos
+> próprios. Se precisares, pede ao assistente para regenerar o CSS embutido.
 
 ## 🚀 Como fazer deploy
 
@@ -104,14 +111,8 @@ navegação por teclado no accordion e no lightbox, foco visível e respeito por
 `prefers-reduced-motion`.
 
 ## ⚡ Performance
-`lazy-load` nas imagens abaixo da dobra, dimensões definidas (evita saltos de
-layout) e JavaScript mínimo. Para produção com Lighthouse ainda mais alto, podes
-opcionalmente compilar o Tailwind em vez do CDN (ver nota no fim).
-
----
-
-### Nota opcional: compilar o Tailwind (produção)
-O projeto usa o Tailwind Play CDN para ser **zero-build e fácil de editar**. Se
-quiseres o CSS mínimo compilado (melhor pontuação de performance), podes migrar
-para Tailwind CLI/Vite mais tarde — o HTML mantém-se igual, só muda a forma como
-o CSS é gerado.
+Página otimizada para tráfego pago em mobile (connect rate): CSS crítico embutido
+(zero CSS/JS de terceiros a bloquear a renderização), Tailwind **compilado** (não
+o Play CDN), fontes auto-hospedadas em `woff2`, imagens em WebP servidas do próprio
+domínio, `preconnect` ao pixel/checkout, `preload` do herói (LCP) e das fontes,
+`lazy-load` nas imagens abaixo da dobra e dimensões definidas (CLS ~0).

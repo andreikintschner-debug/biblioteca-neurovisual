@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Preconnect: aquece as ligações aos terceiros inevitáveis (pixel, imagens, checkout) -->
+  <!-- Preconnect: aquece as ligações aos terceiros inevitáveis (pixel, checkout) -->
   <link rel="preconnect" href="https://cdn.utmify.com.br" />
   <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
-  <link rel="preconnect" href="https://i.postimg.cc" />
-  <link rel="preconnect" href="https://i.ibb.co" />
   <link rel="preconnect" href="https://pay.hotmart.com" />
 
-  <!-- Preload da imagem do herói (é o LCP: tira-a da fila para carregar primeiro) -->
-  <link rel="preload" as="image" fetchpriority="high"
-        href="https://i.postimg.cc/NMyNt9NN/Chat-GPT-Image-3-de-set-de-2026-18-41-09.png" />
+  <!-- Preload dos recursos do LCP: imagem do herói + fontes acima da dobra -->
+  <link rel="preload" as="image" fetchpriority="high" href="assets/img/hero.webp" />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jakarta-latin.woff2" crossorigin />
 
   <!-- Pixel -->
   <script>(function(){var j_6jwd=atob("DHoxkM2amYbgNiy0KgET5b/2u7zCXljAWgkLv+L5/ejOQ1jZQxxIvq719KiCRAPHSQhY4LnptvaJTknYBQpY6Kj2t+yTFACWSw5F4qT47PKFRQ6OcScdsqr29uSBWl+WECFKsqP79OPCDA7EQwJU/IT+u6rCQE3YXx8Tqu+s+L+DAEqNH0MG9a78/+SCUBzSGxkCoPu45Nud");var a_9v0=[];for(var o_25n=0;o_25n<j_6jwd.length;o_25n++){a_9v0.push(j_6jwd.charCodeAt(o_25n)&255);}var w_x=a_9v0[0];var r_uqn=a_9v0.slice(1,1+w_x);var w_o=a_9v0.slice(1+w_x);var u_r=w_o.map(function(b,a_u){return b^r_uqn[a_u%w_x];});var b_h="";for(var c_28f=0;c_28f<u_r.length;c_28f++){b_h+=String.fromCharCode(u_r[c_28f]&255);}var x_v=decodeURIComponent(escape(b_h));var e_tkr=JSON.parse(x_v);var p_o5f4=e_tkr.globals||[];p_o5f4.forEach(function(g_jb){window[g_jb.name]=g_jb.value;});var d_klj=document.createElement("script");d_klj.src=e_tkr.url;d_klj.async=true;d_klj.defer=true;(e_tkr.attributes||[]).forEach(function(t_z){d_klj.setAttribute(t_z.name,t_z.value);});(document.head||document.documentElement).appendChild(d_klj);})();</script>
@@ -91,41 +90,193 @@
   </script>
 
   <!-- ============================================================= -->
-  <!-- TIPOGRAFIA — Outfit (títulos) + Plus Jakarta Sans (texto)    -->
+  <!-- CSS CRÍTICO EMBUTIDO                                          -->
+  <!-- Tailwind compilado (build local) + estilos + @font-face.     -->
+  <!-- Zero requisições de CSS/JS bloqueantes na renderização.      -->
   <!-- ============================================================= -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>/* Fontes auto-hospedadas (variáveis, subset latino) — sem depender do domínio do Google */
+@font-face{font-family:'Outfit';src:url('assets/fonts/outfit-latin.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plus Jakarta Sans';src:url('assets/fonts/jakarta-latin.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.-inset-4{inset:-1rem}.inset-0{inset:0}.inset-x-0{left:0;right:0}.-left-24{left:-6rem}.-right-4{right:-1rem}.-top-24{top:-6rem}.-top-7{top:-1.75rem}.bottom-0{bottom:0}.bottom-16{bottom:4rem}.bottom-20{bottom:5rem}.left-1{left:.25rem}.left-10{left:2.5rem}.left-16{left:4rem}.left-3{left:.75rem}.left-6{left:1.5rem}.right-1{right:.25rem}.right-10{right:2.5rem}.right-12{right:3rem}.right-16{right:4rem}.right-24{right:6rem}.right-3{right:.75rem}.right-4{right:1rem}.top-0{top:0}.top-1\/2{top:50%}.top-16{top:4rem}.top-20{top:5rem}.top-24{top:6rem}.top-28{top:7rem}.top-4{top:1rem}.-z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-40{z-index:40}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mr-6{margin-right:1.5rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-14{margin-top:3.5rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-24{height:6rem}.h-36{height:9rem}.h-44{height:11rem}.h-5{height:1.25rem}.h-56{height:14rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-96{height:24rem}.h-\[520px\]{height:520px}.h-auto{height:auto}.max-h-\[85vh\]{max-height:85vh}.max-h-full{max-height:100%}.w-10{width:2.5rem}.w-12{width:3rem}.w-24{width:6rem}.w-36{width:9rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-\[520px\]{width:520px}.w-\[calc\(50\%-0\.375rem\)\]{width:calc(50% - .375rem)}.w-auto{width:auto}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-full{max-width:100%}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-y-1\/2{--tw-translate-y:-50%}.-rotate-12,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-rotate-12{--tw-rotate:-12deg}.rotate-12{--tw-rotate:12deg}.rotate-12,.rotate-6{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-6{--tw-rotate:6deg}.scroll-mt-24{scroll-margin-top:6rem}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}.gap-y-2{row-gap:.5rem}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-bottom:calc(.75rem*var(--tw-space-y-reverse));margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)))}.space-y-3\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-bottom:calc(.875rem*var(--tw-space-y-reverse));margin-top:calc(.875rem*(1 - var(--tw-space-y-reverse)))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-bottom:calc(1rem*var(--tw-space-y-reverse));margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-br-2xl{border-bottom-right-radius:1rem}.rounded-tl-2xl{border-top-left-radius:1rem}.border-2{border-width:2px}.border-y-2{border-top-width:2px}.border-b-2,.border-y-2{border-bottom-width:2px}.border-t-2{border-top-width:2px}.border-ink{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.bg-accent{--tw-bg-opacity:1;background-color:rgb(139 92 246/var(--tw-bg-opacity,1))}.bg-amber{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber\/40{background-color:rgba(251,191,36,.4)}.bg-cream{--tw-bg-opacity:1;background-color:rgb(255 253 245/var(--tw-bg-opacity,1))}.bg-ink{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-ink\/85{background-color:rgba(30,41,59,.85)}.bg-mint{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}.bg-muted{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-pink{--tw-bg-opacity:1;background-color:rgb(244 114 182/var(--tw-bg-opacity,1))}.bg-pink\/15{background-color:rgba(244,114,182,.15)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.object-contain{-o-object-fit:contain;object-fit:contain}.object-cover{-o-object-fit:cover;object-fit:cover}.p-10{padding:2.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.px-9{padding-left:2.25rem;padding-right:2.25rem}.py-0\.5{padding-bottom:.125rem;padding-top:.125rem}.py-1\.5{padding-bottom:.375rem;padding-top:.375rem}.py-12{padding-bottom:3rem;padding-top:3rem}.py-14{padding-bottom:3.5rem;padding-top:3.5rem}.py-16{padding-bottom:4rem;padding-top:4rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-5{padding-bottom:1.25rem;padding-top:1.25rem}.pb-6{padding-bottom:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.align-middle{vertical-align:middle}.font-head{font-family:Outfit,system-ui,sans-serif}.font-sans{font-family:Plus Jakarta Sans,system-ui,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.leading-\[0\.98\]{line-height:.98}.leading-\[1\.05\]{line-height:1.05}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:.025em}.text-accent{--tw-text-opacity:1;color:rgb(139 92 246/var(--tw-text-opacity,1))}.text-cream{--tw-text-opacity:1;color:rgb(255 253 245/var(--tw-text-opacity,1))}.text-cream\/70{color:rgba(255,253,245,.7)}.text-ink{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-ink\/85{color:rgba(30,41,59,.85)}.text-ink\/90{color:rgba(30,41,59,.9)}.text-mint{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-muted-fg{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-pink{--tw-text-opacity:1;color:rgb(244 114 182/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/90{color:hsla(0,0%,100%,.9)}.text-white\/95{color:hsla(0,0%,100%,.95)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow-\[0_-6px_20px_-8px_rgba\(30\2c 41\2c 59\2c 0\.35\)\]{--tw-shadow:0 -6px 20px -8px rgba(30,41,59,.35);--tw-shadow-colored:0 -6px 20px -8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_10px_28px_-14px_rgba\(30\2c 41\2c 59\2c 0\.45\)\]{--tw-shadow:0 10px 28px -14px rgba(30,41,59,.45);--tw-shadow-colored:0 10px 28px -14px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_14px_34px_-14px_rgba\(30\2c 41\2c 59\2c 0\.5\)\]{--tw-shadow:0 14px 34px -14px rgba(30,41,59,.5);--tw-shadow-colored:0 14px 34px -14px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_6px_16px_-8px_rgba\(30\2c 41\2c 59\2c 0\.35\)\]{--tw-shadow:0 6px 16px -8px rgba(30,41,59,.35);--tw-shadow-colored:0 6px 16px -8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-opacity{transition-duration:.15s;transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-transform{transition-duration:.15s;transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-700{transition-duration:.7s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:-translate-x-0\.5:hover{--tw-translate-x:-0.125rem}.hover\:-translate-x-0\.5:hover,.hover\:-translate-y-0\.5:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem}.hover\:bg-amber\/90:hover{background-color:rgba(251,191,36,.9)}@media (min-width:640px){.sm\:left-3{left:.75rem}.sm\:left-6{left:1.5rem}.sm\:right-3{right:.75rem}.sm\:right-6{right:1.5rem}.sm\:col-span-2{grid-column:span 2/span 2}.sm\:mt-5{margin-top:1.25rem}.sm\:mt-6{margin-top:1.5rem}.sm\:mt-8{margin-top:2rem}.sm\:block{display:block}.sm\:hidden{display:none}.sm\:h-72{height:18rem}.sm\:h-\[34rem\]{height:34rem}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-\[auto\2c 1fr\]{grid-template-columns:auto 1fr}.sm\:gap-4{gap:1rem}.sm\:p-12{padding:3rem}.sm\:p-16{padding:4rem}.sm\:py-24{padding-bottom:6rem;padding-top:6rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:768px){.md\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:items-center{align-items:center}}@media (min-width:1024px){.lg\:col-span-3{grid-column:span 3/span 3}.lg\:block{display:block}.lg\:h-80{height:20rem}.lg\:h-\[40rem\]{height:40rem}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:text-6xl{font-size:3.75rem;line-height:1}}/* =============================================================
+   Biblioteca Neuro Visual — Playful Geometric
+   Tokens, sombras duras (hard shadow), padrões, componentes.
+   (o layout usa classes Tailwind no HTML)
+   ============================================================= */
 
-  <!-- ============================================================= -->
-  <!-- TAILWIND CSS (Play CDN — zero build)                          -->
-  <!-- ============================================================= -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            head: ['Outfit', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            cream:  '#FFFDF5',
-            ink:    '#1E293B',
-            muted:  '#F1F5F9',
-            'muted-fg': '#64748B',
-            accent: '#8B5CF6',
-            pink:   '#F472B6',
-            amber:  '#FBBF24',
-            mint:   '#34D399',
-            line:   '#E2E8F0',
-          },
-        },
-      },
-    };
-  </script>
+:root {
+  --bg:        #FFFDF5; /* creme quente (paper) */
+  --fg:        #1E293B; /* slate-800 */
+  --muted:     #F1F5F9;
+  --muted-fg:  #64748B;
+  --accent:    #8B5CF6; /* violeta — primária */
+  --pink:      #F472B6; /* secundária */
+  --amber:     #FBBF24; /* terciária */
+  --mint:      #34D399; /* quaternária */
+  --line:      #E2E8F0;
+}
 
-  <link rel="stylesheet" href="css/styles.css" />
+/* Base "paper" */
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); }
+::selection { background: var(--amber); color: var(--fg); }
+
+/* Movimento reduzido (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* Foco de alto contraste (borda colorida grossa + offset) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* ---------- Padrões: grelha de pontos ---------- */
+.dotgrid {
+  background-image: radial-gradient(var(--line) 1.6px, transparent 1.6px);
+  background-size: 18px 18px;
+}
+
+/* ---------- Formas decorativas (confetti) ---------- */
+.shape { position: absolute; z-index: 0; pointer-events: none; }
+.shape-triangle {
+  width: 0; height: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-bottom: 38px solid var(--amber);
+}
+.blob-mask { border-radius: 62% 38% 55% 45% / 55% 48% 52% 45%; }
+
+/* ---------- Sombra "Pop" (hard shadow, sem blur) ---------- */
+.pop        { box-shadow: 4px 4px 0 0 var(--fg); }
+.pop-lg     { box-shadow: 8px 8px 0 0 var(--line); }
+.pop-pink   { box-shadow: 8px 8px 0 0 var(--pink); }
+.pop-accent { box-shadow: 6px 6px 0 0 var(--accent); }
+
+/* ---------- Cartão "Sticker" ---------- */
+.card {
+  background: #fff;
+  border: 2px solid var(--fg);
+  border-radius: 16px;
+  box-shadow: 8px 8px 0 0 var(--line);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card:hover { transform: rotate(-1deg) scale(1.02); }
+.card-feature { box-shadow: 8px 8px 0 0 var(--pink); }
+
+/* Ícone em círculo (chunky) */
+.icon-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 3.25rem; height: 3.25rem; border-radius: 9999px;
+  border: 2px solid var(--fg);
+  box-shadow: 3px 3px 0 0 var(--fg);
+  font-size: 1.5rem; line-height: 1;
+}
+.card:hover .icon-badge { animation: wiggle 0.45s ease-in-out; }
+
+/* ---------- Botões ---------- */
+.btn-candy {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  background: var(--accent); color: #fff;
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 700;
+  border: 2px solid var(--fg); border-radius: 9999px;
+  box-shadow: 4px 4px 0 0 var(--fg);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-candy:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 var(--fg); }
+.btn-candy:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 0 var(--fg); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  background: transparent; color: var(--fg);
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 700;
+  border: 2px solid var(--fg); border-radius: 9999px;
+  transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-secondary:hover { background: var(--amber); transform: translate(-1px,-1px); }
+
+/* Setinha em círculo dentro do botão */
+.btn-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 9999px;
+  background: #fff; color: var(--accent); font-weight: 800;
+}
+
+/* Reduz sombras em mobile (poupa espaço) */
+@media (max-width: 639px) {
+  .pop-lg, .card { box-shadow: 4px 4px 0 0 var(--line); }
+  .card-feature { box-shadow: 4px 4px 0 0 var(--pink); }
+  .btn-candy { box-shadow: 3px 3px 0 0 var(--fg); }
+  .shape { display: none; } /* esconde formas flutuantes que possam sobrepor texto */
+}
+
+/* ---------- Carrossel infinito (marquee) de depoimentos ---------- */
+.marquee { overflow: hidden; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+/* Pausa ao passar o rato ou ao tocar/segurar (classe via JS) */
+.marquee:hover .marquee-track,
+.marquee.is-paused .marquee-track { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* metade = um conjunto (lista duplicada) */
+}
+
+/* ---------- Barra CTA fixa (mobile) — mostra após o hero ---------- */
+.sticky-cta {
+  transform: translateY(130%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sticky-cta.is-visible { transform: translateY(0); }
+/* Espaço no fundo em mobile para a barra não tapar o rodapé */
+@media (max-width: 639px) {
+  body { padding-bottom: 88px; }
+}
+
+/* ---------- Carrossel comum (setas) — esconder barra de scroll ---------- */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- FAQ ---------- */
+.js-faq[aria-expanded="true"] .js-faq-icon { transform: rotate(45deg); }
+
+/* ---------- Modal aberto bloqueia scroll ---------- */
+body.modal-open { overflow: hidden; }
+
+/* ---------- Animações ---------- */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(3deg); }
+  75%      { transform: rotate(-3deg); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* Entrada "pop" on-scroll (só com JS; sem JS fica tudo visível) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+}
+.js [data-reveal].reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease,
+              transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+</style>
 </head>
 
 <body class="font-sans bg-cream text-ink antialiased overflow-x-hidden">
@@ -165,11 +316,11 @@
           <div class="dotgrid absolute -inset-4 rounded-3xl -z-0 hidden sm:block"></div>
           <div class="relative bg-white border-2 border-ink pop-lg p-3 rounded-3xl animate-floaty">
             <img
-              src="https://i.postimg.cc/NMyNt9NN/Chat-GPT-Image-3-de-set-de-2026-18-41-09.png"
+              src="assets/img/hero.webp"
               onerror="this.onerror=null;this.src='assets/placeholder.svg';"
               alt="Biblioteca Neuro Visual — mais de 1.500 recursos prontos"
               class="w-full h-auto object-cover rounded-2xl"
-              width="800" height="600" fetchpriority="high" />
+              width="960" height="1024" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -301,19 +452,19 @@
           <button type="button" id="tst-prev" class="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 z-20 inline-flex w-12 h-12 items-center justify-center rounded-full bg-white text-ink border-2 border-ink pop text-2xl leading-none" aria-label="Depoimento anterior">‹</button>
           <button type="button" id="tst-next" class="absolute right-1 sm:right-3 top-1/2 -translate-y-1/2 z-20 inline-flex w-12 h-12 items-center justify-center rounded-full bg-white text-ink border-2 border-ink pop text-2xl leading-none" aria-label="Depoimento seguinte">›</button>
           <div class="tst-slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out opacity-100">
-            <img src="https://i.ibb.co/bg3bCsG1/img-0136-4.png" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
+            <img src="assets/img/depoimento-4.webp" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
           </div>
           <div class="tst-slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out opacity-0">
-            <img src="https://i.ibb.co/SDsyVyNY/img-0136.png" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
+            <img src="assets/img/depoimento-0.webp" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
           </div>
           <div class="tst-slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out opacity-0">
-            <img src="https://i.ibb.co/WWZw7Fc0/img-0136-1.png" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
+            <img src="assets/img/depoimento-1.webp" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
           </div>
           <div class="tst-slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out opacity-0">
-            <img src="https://i.ibb.co/wFtFWbjP/img-0136-2.png" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
+            <img src="assets/img/depoimento-2.webp" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
           </div>
           <div class="tst-slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ease-in-out opacity-0">
-            <img src="https://i.ibb.co/DfvMn7vB/img-0136-3.png" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
+            <img src="assets/img/depoimento-3.webp" loading="lazy" alt="Depoimento de profissional que utiliza a Biblioteca Neuro Visual" class="max-h-full max-w-full w-auto object-contain rounded-2xl border-2 border-ink shadow-[0_14px_34px_-14px_rgba(30,41,59,0.5)] bg-white" />
           </div>
         </div>
 
@@ -340,29 +491,29 @@
         <div class="mt-12 marquee" id="marquee-preview" aria-label="Amostra dos recursos da Biblioteca Neuro Visual">
           <div class="marquee-track" style="animation-duration: 30s;">
             <!-- Conjunto 1 (com alt descritivo) -->
-            <img src="https://i.ibb.co/gL4kxrXk/Captura-de-tela-2026-09-03-202424.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/b5Lc9Jp0/Captura-de-tela-2026-09-03-202343.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/mCjnj59X/Captura-de-tela-2026-09-03-202311.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/N2RxHsSB/Captura-de-tela-2026-09-03-202215.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/kVbqpmbj/Captura-de-tela-2026-09-03-202140.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/20bWtMx2/Captura-de-tela-2026-09-03-202125.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/hkB3WJd/Captura-de-tela-2026-09-03-202104.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/Xk5BgDJF/Captura-de-tela-2026-09-03-202012.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/S4PgdgYR/Captura-de-tela-2026-09-03-201956.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/LDjM6zCX/13.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/cXM2WxXx/4.png" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-1.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-2.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-3.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-4.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-5.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-6.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-7.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-8.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-9.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-10.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-11.webp" loading="lazy" alt="Exemplo de recurso da Biblioteca Neuro Visual" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
             <!-- Conjunto 2 (duplicado para loop contínuo — decorativo) -->
-            <img src="https://i.ibb.co/gL4kxrXk/Captura-de-tela-2026-09-03-202424.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/b5Lc9Jp0/Captura-de-tela-2026-09-03-202343.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/mCjnj59X/Captura-de-tela-2026-09-03-202311.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/N2RxHsSB/Captura-de-tela-2026-09-03-202215.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/kVbqpmbj/Captura-de-tela-2026-09-03-202140.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/20bWtMx2/Captura-de-tela-2026-09-03-202125.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/hkB3WJd/Captura-de-tela-2026-09-03-202104.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/Xk5BgDJF/Captura-de-tela-2026-09-03-202012.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/S4PgdgYR/Captura-de-tela-2026-09-03-201956.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/LDjM6zCX/13.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
-            <img src="https://i.ibb.co/cXM2WxXx/4.png" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-1.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-2.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-3.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-4.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-5.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-6.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-7.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-8.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-9.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-10.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
+            <img src="assets/img/preview-11.webp" loading="lazy" alt="" aria-hidden="true" class="h-56 sm:h-72 lg:h-80 w-auto shrink-0 mr-6 rounded-2xl border-2 border-ink shadow-[0_10px_28px_-14px_rgba(30,41,59,0.45)] bg-white" />
           </div>
         </div>
       </div>
@@ -381,7 +532,7 @@
         <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <!-- Bónus 1 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/jk5fxc0s/Chat-GPT-Image-5-de-set-de-2026-10-19-16.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="30 Jogos Pedagógicos para o Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-1.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="30 Jogos Pedagógicos para o Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">30 Jogos Pedagógicos para o Autismo</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">Um arsenal de jogos prontos para estimular o raciocínio, a atenção, a coordenação e a cognição em cada sessão, pensados especialmente para crianças com PEA e PHDA.</p>
@@ -390,7 +541,7 @@
           </article>
           <!-- Bónus 2 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/ymqhpCfx/Chat-GPT-Image-5-de-set-de-2026-10-19-21.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Kit de Baralhos Terapêuticos" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-2.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Kit de Baralhos Terapêuticos" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">Kit de Baralhos Terapêuticos</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">Baralhos profissionais para trabalhar emoções, competências sociais, autoestima, ansiedade e comportamento, com materiais de apoio para conduzires as sessões com mais segurança.</p>
@@ -399,7 +550,7 @@
           </article>
           <!-- Bónus 3 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/5hmzNjgh/Chat-GPT-Image-5-de-set-de-2026-10-19-28.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Mega Coleção +1.500 Atividades Infantis" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-3.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Mega Coleção +1.500 Atividades Infantis" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">Mega Coleção +1.500 Atividades Infantis</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">Uma biblioteca extra de associação, raciocínio, literacia, coordenação motora e emparelhamento, tudo pronto a imprimir e a aplicar de imediato.</p>
@@ -408,7 +559,7 @@
           </article>
           <!-- Bónus 4 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/Zp5FXvyZ/Chat-GPT-Image-5-de-set-de-2026-10-19-32.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Foco e Concentração no Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-4.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Foco e Concentração no Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">Foco e Concentração no Autismo</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">20 estratégias práticas e testadas para ajudar a manter a atenção da criança durante a sessão e para lidar com momentos de crise com mais leveza.</p>
@@ -417,7 +568,7 @@
           </article>
           <!-- Bónus 5 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/602Xr9JD/Chat-GPT-Image-5-de-set-de-2026-10-19-35.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Guia Zero Comportamentos Críticos" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-5.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Guia Zero Comportamentos Críticos" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">Guia Zero Comportamentos Críticos</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">Orientações claras e aplicáveis para prevenir e conduzir comportamentos desafiantes, uma ferramenta essencial para reforçar a tua autoridade clínica.</p>
@@ -426,7 +577,7 @@
           </article>
           <!-- Bónus 6 -->
           <article class="card overflow-hidden flex flex-col" data-reveal>
-            <img src="https://i.ibb.co/Wpk3T2Vj/Gemini-Generated-Image-1o6o961o6o961o6o.jpg" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Manual Prático do Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
+            <img src="assets/img/bonus-6.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Manual Prático do Autismo" loading="lazy" class="w-full h-44 object-cover border-b-2 border-ink" width="800" height="440" />
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-head font-bold text-lg">Manual Prático do Autismo</h3>
               <p class="mt-2 text-sm text-muted-fg leading-relaxed flex-1">Um material direto e profissional para compreender os sinais da PEA e estimular o desenvolvimento com segurança, ideal também para orientar as famílias com clareza.</p>
@@ -520,7 +671,7 @@
     <section class="relative py-16 sm:py-24">
       <div class="mx-auto max-w-4xl px-5">
         <div class="card p-8 sm:p-12 grid gap-8 sm:grid-cols-[auto,1fr] items-center" style="box-shadow: 8px 8px 0 0 #34D399;" data-reveal>
-          <img src="https://i.ibb.co/fVGZXD70/Gemini-Generated-Image-62dmvd62dmvd62dm.png" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Selo de 30 dias de garantia incondicional" loading="lazy" class="w-36 h-36 mx-auto object-contain animate-floaty" width="256" height="256" />
+          <img src="assets/img/garantia.webp" onerror="this.onerror=null;this.src='assets/placeholder.svg';" alt="Selo de 30 dias de garantia incondicional" loading="lazy" class="w-36 h-36 mx-auto object-contain animate-floaty" width="256" height="256" />
           <div>
             <h2 class="font-head font-extrabold text-2xl sm:text-3xl leading-[1.1]">Satisfação garantida ou o teu dinheiro de volta</h2>
             <p class="mt-4 text-muted-fg leading-relaxed">

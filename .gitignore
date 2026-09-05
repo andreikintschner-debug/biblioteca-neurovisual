@@ -1,0 +1,7 @@
+# Ficheiros-fonte das imagens (mantidos localmente; não precisam de ir para o deploy)
+imagens-originais/
+
+# Sistema / ruído
+.DS_Store
+Thumbs.db
+*.log
