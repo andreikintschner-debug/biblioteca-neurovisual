@@ -26,7 +26,7 @@ mercado de Portugal. Toda a copy vem do ficheiro
 Neurovisual/
 ├── index.html                 ← a página (toda a copy + estrutura)
 ├── css/styles.css             ← estilos de apoio (animações, foco, etc.)
-├── js/main.js                 ← CTAs, tracking, countdown, lightbox, FAQ, exit-intent
+├── js/main.js                 ← CTAs, tracking, countdown, lightbox, FAQ
 ├── assets/                    ← imagens (substitui os placeholders pelas reais)
 │   ├── placeholder.svg        ← usado enquanto não há imagens reais
 │   ├── favicon.svg
@@ -93,7 +93,6 @@ Recomenda-se **.webp** (qualidade ~80, < 200 KB por imagem).
 ## ✅ Componentes de conversão incluídos
 - **Top bar** fixa no topo (urgência + ancoragem de preço) — a 1ª coisa visível.
 - Barra de CTA **fixa (sticky)** no fundo em mobile.
-- **Exit-intent popup** no desktop (`#__exit_guard`).
 - **Countdown** de sessão (15 min) na top bar.
 - **Lightbox** para ampliar os testemunhos (rato e teclado — ESC fecha).
 - **FAQ** em accordion acessível por teclado.

@@ -323,52 +323,12 @@
   }
 
   /* ---------------------------------------------------------
-     7. Exit-intent popup (desktop) — #__exit_guard
-     --------------------------------------------------------- */
-  var exitGuard = document.getElementById("__exit_guard");
-  var exitClose = document.getElementById("exit-close");
-  var exitShown = false;
-
-  function isDesktop() {
-    return window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches;
-  }
-  function openExit() {
-    if (!exitGuard || exitShown || !isDesktop()) return;
-    exitShown = true;
-    try { sessionStorage.setItem("nv_exit_shown", "1"); } catch (e) {}
-    exitGuard.classList.remove("hidden");
-    exitGuard.classList.add("flex");
-    document.body.classList.add("modal-open");
-    if (exitClose) exitClose.focus();
-  }
-  function closeExit() {
-    if (!exitGuard) return;
-    exitGuard.classList.add("hidden");
-    exitGuard.classList.remove("flex");
-    document.body.classList.remove("modal-open");
-  }
-
-  if (exitGuard) {
-    // Só uma vez por sessão
-    if (sessionStorage.getItem("nv_exit_shown") === "1") exitShown = true;
-
-    document.addEventListener("mouseout", function (e) {
-      if (!e.relatedTarget && e.clientY <= 0) openExit();
-    });
-    if (exitClose) exitClose.addEventListener("click", closeExit);
-    exitGuard.addEventListener("click", function (e) {
-      if (e.target === exitGuard) closeExit();
-    });
-  }
-
-  /* ---------------------------------------------------------
-     8. Tecla ESC fecha qualquer modal aberto
+     7. Tecla ESC fecha qualquer modal aberto
      --------------------------------------------------------- */
   document.addEventListener("keydown", function (e) {
     var lbOpen = lightbox && !lightbox.classList.contains("hidden");
     if (e.key === "Escape") {
       if (lbOpen) closeLightbox();
-      if (exitGuard && !exitGuard.classList.contains("hidden")) closeExit();
     } else if (lbOpen && e.key === "ArrowRight") {
       nextImg();
     } else if (lbOpen && e.key === "ArrowLeft") {
