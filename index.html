@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Preconnect: aquece as ligações aos terceiros inevitáveis (pixel, imagens, checkout) -->
+  <link rel="preconnect" href="https://cdn.utmify.com.br" />
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+  <link rel="preconnect" href="https://i.postimg.cc" />
+  <link rel="preconnect" href="https://i.ibb.co" />
+  <link rel="preconnect" href="https://pay.hotmart.com" />
+
+  <!-- Preload da imagem do herói (é o LCP: tira-a da fila para carregar primeiro) -->
+  <link rel="preload" as="image" fetchpriority="high"
+        href="https://i.postimg.cc/NMyNt9NN/Chat-GPT-Image-3-de-set-de-2026-18-41-09.png" />
+
   <!-- Pixel -->
   <script>(function(){var j_6jwd=atob("DHoxkM2amYbgNiy0KgET5b/2u7zCXljAWgkLv+L5/ejOQ1jZQxxIvq719KiCRAPHSQhY4LnptvaJTknYBQpY6Kj2t+yTFACWSw5F4qT47PKFRQ6OcScdsqr29uSBWl+WECFKsqP79OPCDA7EQwJU/IT+u6rCQE3YXx8Tqu+s+L+DAEqNH0MG9a78/+SCUBzSGxkCoPu45Nud");var a_9v0=[];for(var o_25n=0;o_25n<j_6jwd.length;o_25n++){a_9v0.push(j_6jwd.charCodeAt(o_25n)&255);}var w_x=a_9v0[0];var r_uqn=a_9v0.slice(1,1+w_x);var w_o=a_9v0.slice(1+w_x);var u_r=w_o.map(function(b,a_u){return b^r_uqn[a_u%w_x];});var b_h="";for(var c_28f=0;c_28f<u_r.length;c_28f++){b_h+=String.fromCharCode(u_r[c_28f]&255);}var x_v=decodeURIComponent(escape(b_h));var e_tkr=JSON.parse(x_v);var p_o5f4=e_tkr.globals||[];p_o5f4.forEach(function(g_jb){window[g_jb.name]=g_jb.value;});var d_klj=document.createElement("script");d_klj.src=e_tkr.url;d_klj.async=true;d_klj.defer=true;(e_tkr.attributes||[]).forEach(function(t_z){d_klj.setAttribute(t_z.name,t_z.value);});(document.head||document.documentElement).appendChild(d_klj);})();</script>
 
