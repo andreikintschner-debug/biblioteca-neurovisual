@@ -1,0 +1,179 @@
+/* =============================================================
+   Biblioteca Neuro Visual — Playful Geometric
+   Tokens, sombras duras (hard shadow), padrões, componentes.
+   (o layout usa classes Tailwind no HTML)
+   ============================================================= */
+
+:root {
+  --bg:        #FFFDF5; /* creme quente (paper) */
+  --fg:        #1E293B; /* slate-800 */
+  --muted:     #F1F5F9;
+  --muted-fg:  #64748B;
+  --accent:    #8B5CF6; /* violeta — primária */
+  --pink:      #F472B6; /* secundária */
+  --amber:     #FBBF24; /* terciária */
+  --mint:      #34D399; /* quaternária */
+  --line:      #E2E8F0;
+}
+
+/* Base "paper" */
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); }
+::selection { background: var(--amber); color: var(--fg); }
+
+/* Movimento reduzido (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* Foco de alto contraste (borda colorida grossa + offset) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* ---------- Padrões: grelha de pontos ---------- */
+.dotgrid {
+  background-image: radial-gradient(var(--line) 1.6px, transparent 1.6px);
+  background-size: 18px 18px;
+}
+
+/* ---------- Formas decorativas (confetti) ---------- */
+.shape { position: absolute; z-index: 0; pointer-events: none; }
+.shape-triangle {
+  width: 0; height: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-bottom: 38px solid var(--amber);
+}
+.blob-mask { border-radius: 62% 38% 55% 45% / 55% 48% 52% 45%; }
+
+/* ---------- Sombra "Pop" (hard shadow, sem blur) ---------- */
+.pop        { box-shadow: 4px 4px 0 0 var(--fg); }
+.pop-lg     { box-shadow: 8px 8px 0 0 var(--line); }
+.pop-pink   { box-shadow: 8px 8px 0 0 var(--pink); }
+.pop-accent { box-shadow: 6px 6px 0 0 var(--accent); }
+
+/* ---------- Cartão "Sticker" ---------- */
+.card {
+  background: #fff;
+  border: 2px solid var(--fg);
+  border-radius: 16px;
+  box-shadow: 8px 8px 0 0 var(--line);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card:hover { transform: rotate(-1deg) scale(1.02); }
+.card-feature { box-shadow: 8px 8px 0 0 var(--pink); }
+
+/* Ícone em círculo (chunky) */
+.icon-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 3.25rem; height: 3.25rem; border-radius: 9999px;
+  border: 2px solid var(--fg);
+  box-shadow: 3px 3px 0 0 var(--fg);
+  font-size: 1.5rem; line-height: 1;
+}
+.card:hover .icon-badge { animation: wiggle 0.45s ease-in-out; }
+
+/* ---------- Botões ---------- */
+.btn-candy {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  background: var(--accent); color: #fff;
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 700;
+  border: 2px solid var(--fg); border-radius: 9999px;
+  box-shadow: 4px 4px 0 0 var(--fg);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-candy:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 var(--fg); }
+.btn-candy:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 0 var(--fg); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  background: transparent; color: var(--fg);
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 700;
+  border: 2px solid var(--fg); border-radius: 9999px;
+  transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-secondary:hover { background: var(--amber); transform: translate(-1px,-1px); }
+
+/* Setinha em círculo dentro do botão */
+.btn-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 9999px;
+  background: #fff; color: var(--accent); font-weight: 800;
+}
+
+/* Reduz sombras em mobile (poupa espaço) */
+@media (max-width: 639px) {
+  .pop-lg, .card { box-shadow: 4px 4px 0 0 var(--line); }
+  .card-feature { box-shadow: 4px 4px 0 0 var(--pink); }
+  .btn-candy { box-shadow: 3px 3px 0 0 var(--fg); }
+  .shape { display: none; } /* esconde formas flutuantes que possam sobrepor texto */
+}
+
+/* ---------- Carrossel infinito (marquee) de depoimentos ---------- */
+.marquee { overflow: hidden; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+/* Pausa ao passar o rato ou ao tocar/segurar (classe via JS) */
+.marquee:hover .marquee-track,
+.marquee.is-paused .marquee-track { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* metade = um conjunto (lista duplicada) */
+}
+
+/* ---------- Barra CTA fixa (mobile) — mostra após o hero ---------- */
+.sticky-cta {
+  transform: translateY(130%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sticky-cta.is-visible { transform: translateY(0); }
+/* Espaço no fundo em mobile para a barra não tapar o rodapé */
+@media (max-width: 639px) {
+  body { padding-bottom: 88px; }
+}
+
+/* ---------- Carrossel comum (setas) — esconder barra de scroll ---------- */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- FAQ ---------- */
+.js-faq[aria-expanded="true"] .js-faq-icon { transform: rotate(45deg); }
+
+/* ---------- Modal aberto bloqueia scroll ---------- */
+body.modal-open { overflow: hidden; }
+
+/* ---------- Animações ---------- */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(3deg); }
+  75%      { transform: rotate(-3deg); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* Entrada "pop" on-scroll (só com JS; sem JS fica tudo visível) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+}
+.js [data-reveal].reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease,
+              transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

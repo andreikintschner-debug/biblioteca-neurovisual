@@ -1,0 +1,35 @@
+IMAGENS A SUBSTITUIR (Biblioteca Neuro Visual)
+================================================
+
+Coloca aqui os teus ficheiros reais de Portugal com EXATAMENTE estes nomes
+(formato .webp recomendado para performance). Enquanto não existirem, a página
+mostra automaticamente o "placeholder.svg" no lugar de cada imagem.
+
+HERO / GERAL
+  hero.webp                  → imagem principal do topo (biblioteca / recursos)
+  organizada.webp            → biblioteca organizada (secção "Identificas-te?")
+  og-image.webp              → imagem de partilha em redes sociais (1200x630)
+
+BÓNUS (6)
+  bonus-1-jogos.webp         → 30 Jogos Pedagógicos para o Autismo
+  bonus-2-baralhos.webp      → Kit de Baralhos Terapêuticos
+  bonus-3-atividades.webp    → Mega Coleção +1.500 Atividades Infantis
+  bonus-4-foco.webp          → Foco e Concentração no Autismo
+  bonus-5-comportamentos.webp→ Guia Zero Comportamentos Críticos
+  bonus-6-manual.webp        → Manual Prático do Autismo
+
+PROVA SOCIAL (testemunhos — prints de conversas)
+  testemunho-1.webp          → Fernanda — Psicóloga
+  testemunho-2.webp          → Patrícia — Terapeuta da Fala
+  testemunho-3.webp          → Camila — Professora de Educação Especial
+  testemunho-4.webp          → Juliana — Terapeuta Ocupacional
+  testemunho-5.webp          → Vanessa — Terapeuta ABA
+
+AUTORIDADE / GARANTIA
+  sara-instagram.webp        → print do perfil @sara.fialhopsi no Instagram
+  garantia-7dias.webp        → selo "7 dias de garantia"
+
+DICAS DE PERFORMANCE
+  - Exporta em .webp (qualidade ~80). Mantém os ficheiros abaixo de ~200 KB.
+  - Testemunhos na vertical (ex.: 600x800). Bónus/hero na horizontal.
+  - Não é preciso mexer no código: basta manter estes nomes de ficheiro.
