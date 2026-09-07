@@ -51,30 +51,45 @@
       try { window.gtag("event", name); } catch (e) {}
     }
   }
+  function fbTrackCustom(event) {
+    if (typeof window.fbq === "function") {
+      try { window.fbq("trackCustom", event); } catch (e) {}
+    }
+  }
 
   /* ---------------------------------------------------------
-     1. CTAs — disparam o evento InitiateCheckout.
-        Cada botão de compra (data-plan) aponta para o
-        checkout do respetivo plano; os restantes CTAs fazem
-        scroll suave até à secção de planos (href="#planos").
+     1. CTAs — dois tipos, com tracking distinto:
+        - CTAs intermédios (data-cta sem data-plan): apenas
+          fazem scroll suave até à secção de planos
+          (href="#planos"). NÃO disparam InitiateCheckout;
+          registam apenas um evento de interesse (ScrollToOffer).
+        - Botões de COMPRA (data-plan): levam ao CHECKOUT_URL e
+          são os ÚNICOS que disparam InitiateCheckout, no clique,
+          imediatamente antes de redirecionar.
      --------------------------------------------------------- */
-  // Qualquer clique num CTA dispara o evento InitiateCheckout.
+  // CTAs intermédios / barra sticky: só scroll → sinal de interesse.
   document.querySelectorAll("[data-cta]").forEach(function (btn) {
+    if (btn.hasAttribute("data-plan")) return; // botão de checkout real: tratado abaixo
     btn.addEventListener("click", function () {
-      fbTrack("InitiateCheckout");
-      gaEvent("initiate_checkout");
+      fbTrackCustom("ScrollToOffer");
+      gaEvent("scroll_to_offer");
     });
   });
 
-  // Botões de COMPRA (por plano): apontam para o checkout correspondente.
+  // Botões de COMPRA (por plano): apontam para o checkout correspondente
+  // e disparam InitiateCheckout no clique, antes de redirecionar.
   document.querySelectorAll("[data-plan]").forEach(function (buyBtn) {
     var url = buyBtn.getAttribute("data-plan") === "completo" ? CHECKOUT_COMPLETO : CHECKOUT_BASICO;
     if (url) {
       buyBtn.setAttribute("href", url);
       buyBtn.setAttribute("target", "_blank");
       buyBtn.setAttribute("rel", "noopener");
+      buyBtn.addEventListener("click", function () {
+        fbTrack("InitiateCheckout");
+        gaEvent("initiate_checkout");
+      });
     } else {
-      // Sem checkout definido: leva para a secção de planos.
+      // Sem checkout definido: leva para a secção de planos (não é checkout real).
       buyBtn.setAttribute("href", "#planos");
     }
   });
