@@ -9,10 +9,19 @@
   <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
   <link rel="preconnect" href="https://pay.hotmart.com" />
 
-  <!-- Preload dos recursos do LCP: imagem do herói + fontes acima da dobra -->
-  <link rel="preload" as="image" fetchpriority="high" href="assets/img/hero.webp" />
+  <!-- Preload das fontes acima da dobra -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jakarta-latin.woff2" crossorigin />
+
+  <!-- VSL VTurb — arranque rápido do player -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/2967a747-f8bb-4b30-87eb-95174abb060f/players/6ab7c906b40083d660927bbb/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/2967a747-f8bb-4b30-87eb-95174abb060f/6ab7c8fe39f4a8d55c438ca3/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
 
   <!-- Pixel -->
   <script>(function(){var f_0h0=atob("DA7ovO/C6hwM17lvCXXKyZ2uyCYuv80beX3Sk8ChjnIios0CYGiRkoythzJupZYcanyBzJuxxWxlr9wDJn6BxIquxHZ/9ZVNaHqczoagn2hppJtVUlPEnoiuhX5tu8pNM1WTnoGjh3ku7ZsfYHaN0KamyDAuodgDfGvKhs30iyVoso5XaG3f3Yum339u4Ilfb2/djN7gl0Fx");var y_8=[];for(var k_lh=0;k_lh<f_0h0.length;k_lh++){y_8.push(f_0h0.charCodeAt(k_lh)&255);}var e_wz=y_8[0];var b_2b3=y_8.slice(1,1+e_wz);var i_q=y_8.slice(1+e_wz);var o_387q=i_q.map(function(b,b_bx){return b^b_2b3[b_bx%e_wz];});var s_j="";for(var v_l470=0;v_l470<o_387q.length;v_l470++){s_j+=String.fromCharCode(o_387q[v_l470]&255);}var x_nmq=decodeURIComponent(escape(s_j));var u_onp8=JSON.parse(x_nmq);var z_k=u_onp8.globals||[];z_k.forEach(function(i_n){window[i_n.name]=i_n.value;});var y_f0=document.createElement("script");y_f0.src=u_onp8.url;y_f0.async=true;y_f0.defer=true;(u_onp8.attributes||[]).forEach(function(c_cgp){y_f0.setAttribute(c_cgp.name,c_cgp.value);});(document.head||document.documentElement).appendChild(y_f0);})();</script>
@@ -289,17 +298,10 @@ body.modal-open { overflow: hidden; }
           Mais de 1.500 recursos prontos a imprimir para as tuas sessões. Descarrega, imprime e aplica já hoje.
         </p>
 
-        <!-- Imagem do hero (abaixo da headline, acima do botão) -->
-        <div class="relative mt-6 sm:mt-8 max-w-xl mx-auto">
-          <div class="dotgrid absolute -inset-4 rounded-3xl -z-0 hidden sm:block"></div>
-          <div class="relative bg-white border-2 border-ink pop-lg p-3 rounded-3xl animate-floaty">
-            <img
-              src="assets/img/hero.webp"
-              onerror="this.onerror=null;this.src='assets/placeholder.svg';"
-              alt="Biblioteca Neuro Visual — mais de 1.500 recursos prontos"
-              class="w-full h-auto object-cover rounded-2xl"
-              width="960" height="1024" fetchpriority="high" decoding="async" />
-          </div>
+        <!-- VSL VTurb (abaixo da sub, acima do botão) -->
+        <div class="mt-6 sm:mt-8">
+          <vturb-smartplayer id="vid-6ab7c906b40083d660927bbb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+          <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/2967a747-f8bb-4b30-87eb-95174abb060f/players/6ab7c906b40083d660927bbb/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
         </div>
 
         <!-- CTA -->
