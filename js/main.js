@@ -108,9 +108,9 @@
       if (!start) start = ts;
       var p = Math.min((ts - start) / duration, 1);
       var val = Math.floor(p * target);
-      el.textContent = prefix + val.toLocaleString("pt-PT") + suffix;
+      el.textContent = prefix + val.toLocaleString("it-IT") + suffix;
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = prefix + target.toLocaleString("pt-PT") + suffix;
+      else el.textContent = prefix + target.toLocaleString("it-IT") + suffix;
     }
     requestAnimationFrame(step);
   }
@@ -160,10 +160,7 @@
     var el = document.getElementById("offer-date");
     if (!el) return;
     var d = new Date();
-    var dd = String(d.getDate()).padStart(2, "0");
-    var mm = String(d.getMonth() + 1).padStart(2, "0");
-    var yyyy = d.getFullYear();
-    el.textContent = dd + "/" + mm + "/" + yyyy; // DD/MM/AAAA
+    el.textContent = d.toLocaleDateString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" }); // gg/mm/aaaa
   })();
 
   /* ---------------------------------------------------------
